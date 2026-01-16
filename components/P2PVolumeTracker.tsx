@@ -114,7 +114,7 @@ const P2PVolumeTracker = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 animate-[slideIn_0.6s_ease-out_0.1s_backwards]">
                     <div className="bg-cyan-400/10 border border-cyan-400/20 rounded-2xl p-6 backdrop-blur-md">
                         <div className="text-sm text-slate-400 mb-2 font-medium uppercase tracking-wider">
-                            Total Volume
+                            Total Volume (24h)
                         </div>
                         <div className="text-3xl font-bold text-cyan-400 font-mono">
                             ${totalVolume.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
