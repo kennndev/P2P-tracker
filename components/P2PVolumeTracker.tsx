@@ -274,6 +274,9 @@ const P2PVolumeTracker = () => {
                     <p className="text-xs text-slate-500">
                         ✅ Displaying {Object.keys(volumes).length} exchange-asset pair{Object.keys(volumes).length !== 1 ? 's' : ''} with live data | No simulated data
                     </p>
+                    <p className="text-xs text-slate-500 mt-2 opacity-75">
+                        Data sourced from Binance and Bybit public P2P APIs. This application is not affiliated with these exchanges.
+                    </p>
                 </div>
             </div>
         </div>
