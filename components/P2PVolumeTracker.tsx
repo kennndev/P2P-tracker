@@ -10,26 +10,36 @@ const P2PVolumeTracker = () => {
     const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
     const [error, setError] = useState<string | null>(null);
 
-    // Exchange configurations
+    // Exchange configurations - now tracking both USDC and USDT
     const exchanges: ExchangeConfig[] = [
         {
-            id: 'binance',
-            name: 'Binance',
+            id: 'binance-usdc',
+            name: 'Binance USDC',
             color: '#F3BA2F',
         },
         {
-            id: 'bybit',
-            name: 'Bybit',
+            id: 'binance-usdt',
+            name: 'Binance USDT',
+            color: '#F3BA2F',
+        },
+        {
+            id: 'bybit-usdc',
+            name: 'Bybit USDC',
             color: '#F7A600',
         },
         {
-            id: 'okx',
-            name: 'OKX',
+            id: 'bybit-usdt',
+            name: 'Bybit USDT',
+            color: '#F7A600',
+        },
+        {
+            id: 'okx-usdc',
+            name: 'OKX USDC',
             color: '#000000',
         },
         {
-            id: 'kucoin',
-            name: 'KuCoin',
+            id: 'kucoin-usdc',
+            name: 'KuCoin USDC',
             color: '#24AE8F',
         }
     ];
@@ -96,7 +106,7 @@ const P2PVolumeTracker = () => {
                         </h1>
                     </div>
                     <p className="text-lg text-slate-400 font-mono">
-                        Real-time USDC peer-to-peer trading volumes across major exchanges
+                        Real-time USDC & USDT peer-to-peer trading volumes across major exchanges
                     </p>
                 </div>
 
@@ -109,6 +119,7 @@ const P2PVolumeTracker = () => {
                         <div className="text-3xl font-bold text-cyan-400 font-mono">
                             ${totalVolume.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                         </div>
+                        <div className="text-xs text-slate-500 mt-1">USDC + USDT</div>
                     </div>
 
                     <div className="bg-indigo-400/10 border border-indigo-400/20 rounded-2xl p-6 backdrop-blur-md">
@@ -122,13 +133,13 @@ const P2PVolumeTracker = () => {
 
                     <div className="bg-emerald-400/10 border border-emerald-400/20 rounded-2xl p-6 backdrop-blur-md">
                         <div className="text-sm text-slate-400 mb-2 font-medium uppercase tracking-wider">
-                            Exchanges
+                            Active Pairs
                         </div>
                         <div className="text-3xl font-bold text-emerald-400 font-mono">
                             {Object.keys(volumes).length}
                         </div>
+                        <div className="text-xs text-slate-500 mt-1">Exchange-Asset</div>
                     </div>
-
                     <div className="bg-rose-400/10 border border-rose-400/20 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between">
                         <div className="text-sm text-slate-400 mb-2 font-medium uppercase tracking-wider">
                             Last Update
@@ -258,10 +269,10 @@ const P2PVolumeTracker = () => {
                 {/* Footer Note */}
                 <div className="mt-12 p-6 bg-slate-800/50 rounded-xl border border-white/10 text-center text-slate-400 text-sm animate-[slideIn_0.6s_ease-out_0.8s_backwards]">
                     <p className="mb-2">
-                        📊 Data refreshes automatically every 30 seconds | Live data from exchange APIs
+                        📊 Data refreshes automatically every 30 seconds | Live USDC & USDT data from exchange APIs
                     </p>
                     <p className="text-xs text-slate-500">
-                        ✅ Displaying {Object.keys(volumes).length} exchange{Object.keys(volumes).length !== 1 ? 's' : ''} with live data | No simulated data
+                        ✅ Displaying {Object.keys(volumes).length} exchange-asset pair{Object.keys(volumes).length !== 1 ? 's' : ''} with live data | No simulated data
                     </p>
                 </div>
             </div>

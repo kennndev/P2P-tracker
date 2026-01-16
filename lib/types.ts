@@ -4,6 +4,7 @@ export interface ExchangeData {
     avgPrice: number;
     timestamp: string;
     exchange: string;
+    asset?: string;
     note?: string;
 }
 
