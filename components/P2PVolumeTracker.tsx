@@ -7,7 +7,7 @@ import type { AllExchangesResponse, ExchangeConfig } from '@/lib/types';
 const P2PVolumeTracker = () => {
     const [volumes, setVolumes] = useState<AllExchangesResponse>({});
     const [loading, setLoading] = useState(true);
-    const [lastUpdate, setLastUpdate] = useState(new Date());
+    const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     // Exchange configurations
@@ -134,7 +134,7 @@ const P2PVolumeTracker = () => {
                             Last Update
                         </div>
                         <div className="text-base font-medium text-rose-400 font-mono">
-                            {lastUpdate.toLocaleTimeString()}
+                            {lastUpdate ? lastUpdate.toLocaleTimeString() : 'Loading...'}
                         </div>
                     </div>
                 </div>
